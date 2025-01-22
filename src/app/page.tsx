@@ -3,6 +3,7 @@
 import type { NextPage } from 'next';
 import type { GridColDef } from '@mui/x-data-grid';
 import type { ItemType } from '@/types/item-type';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import {
     Button,
@@ -102,21 +103,39 @@ const Home: NextPage = () => {
                 >
                     Inventory Management
                 </Typography>
-                <Button
-                    variant="contained"
-                    onClick={() => setAddOpen(true)}
-                    sx={{
-                        background: grey[800],
-                        fontSize: 16,
-                        textTransform: 'initial',
-                        borderRadius: 3,
-                        '&:hover': {
-                            background: grey[900]
-                        }
-                    }}
-                >
-                    Add Item
-                </Button>
+                <Stack gap={1} direction="row">
+                    <Link href="/recipe">
+                        <Button
+                            variant="contained"
+                            sx={{
+                                background: grey[700],
+                                fontSize: 16,
+                                textTransform: 'initial',
+                                borderRadius: 3,
+                                '&:hover': {
+                                    background: grey[800]
+                                }
+                            }}
+                        >
+                            Add Recipe
+                        </Button>
+                    </Link>
+                    <Button
+                        variant="contained"
+                        onClick={() => setAddOpen(true)}
+                        sx={{
+                            background: grey[800],
+                            fontSize: 16,
+                            textTransform: 'initial',
+                            borderRadius: 3,
+                            '&:hover': {
+                                background: grey[900]
+                            }
+                        }}
+                    >
+                        Add Item
+                    </Button>
+                </Stack>
                 <AddItem
                     open={addOpen}
                     setOpen={setAddOpen}
